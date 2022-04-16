@@ -1,3 +1,2 @@
 .idea
-bin
-td
+cmake-build-debug
