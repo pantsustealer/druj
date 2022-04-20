@@ -13,6 +13,12 @@ if (NOT CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
     include_directories(${CURSES_INCLUDE_DIR})
 endif ()
 
+add_custom_target(prepare ALL
+        ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release .. &&
+        ${CMAKE_COMMAND} --build . --target prepare_cross_compiling &&
+        cd ../td && php-8.0 SplitSource.php
+        )
+
 # tdlib
 add_subdirectory(td)
 
@@ -60,4 +66,4 @@ set(OBJECTIVE_C_SRCS
 add_executable(${NAME} ${OBJECTIVE_C_SRCS})
 target_compile_options(${NAME} PUBLIC ${GNUSTEP_FLAGS})
 
-target_link_libraries(${NAME} PUBLIC ${GNUSTEP_LIBS} ncursesw Td::TdJson)
+target_link_libraries(${NAME} PUBLIC ncursesw ${GNUSTEP_LIBS} PRIVATE Td::TdJsonStatic)
