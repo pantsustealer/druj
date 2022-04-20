@@ -11,10 +11,10 @@ if (NOT CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
     set(CURSES_NEED_WIDE TRUE)
     find_package(Curses REQUIRED)
     include_directories(${CURSES_INCLUDE_DIR})
-
-    # tdlib
-    add_subdirectory(td)
 endif ()
+
+# tdlib
+add_subdirectory(td)
 
 #####################################################################################
 #
@@ -60,8 +60,4 @@ set(OBJECTIVE_C_SRCS
 add_executable(${NAME} ${OBJECTIVE_C_SRCS})
 target_compile_options(${NAME} PUBLIC ${GNUSTEP_FLAGS})
 
-if (NOT CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
-    target_link_libraries(${NAME} PUBLIC ${GNUSTEP_LIBS} ncursesw Td::TdJson)
-else ()
-    target_link_libraries(${NAME} PUBLIC ${GNUSTEP_LIBS} ncursesw tdjson)
-endif ()
+target_link_libraries(${NAME} PUBLIC ${GNUSTEP_LIBS} ncursesw Td::TdJson)
