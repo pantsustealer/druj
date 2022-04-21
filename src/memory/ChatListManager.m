@@ -31,13 +31,13 @@
  * Добавляет чат в список
  *
  * @param name - отображаемое название чата
- * @param id - id чата
+ * @param key - id чата
  */
 - (void)addChatName:(NSString *)name
-             withId:(NSString *)id;
+            withKey:(NSString *)key;
 {
   [dict setObject:name
-           forKey:id];
+           forKey:key];
 
   return;
 }
@@ -62,6 +62,13 @@
   ];
 
   return [threadDictionary objectForKey:KEY];
+}
+
+-(NSString *)getChatNameByKey:(NSString *)key
+{
+  NSString *name = [[self getChatList] objectForKey:key];
+
+  return name;
 }
 
 /**

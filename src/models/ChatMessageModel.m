@@ -1,15 +1,15 @@
-#import "../../include/ChatMessage.h"
+#import "../../include/ChatMessageModel.h"
 
-@implementation ChatMessage
+@implementation ChatMessageModel
 
 @synthesize message_id = _message_id;
 @synthesize user_id = _user_id;
 @synthesize message = _message;
 @synthesize timestamp = _timestamp;
 
-- (NSComparisonResult)compare:(ChatMessage *)chat_message
+- (NSComparisonResult)compare:(ChatMessageModel *)chat_message_model
 {
-  return [self.message_id compare:chat_message.message_id];
+  return [self.message_id compare:chat_message_model.message_id];
 }
 
 - (void)dealloc

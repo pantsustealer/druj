@@ -50,20 +50,28 @@ set(OBJECTIVE_C_SRCS
 
         # helpers
         include/DevLog.h
+        include/DateHelper.h
         src/helpers/DevLog.m
+        src/helpers/DateHelper.m
 
+        include/AbstractManager.h
         include/ChatListManager.h
         include/ChatMessageManager.h
-        include/UserManager.h
+        include/ChatUserManager.h
+        src/memory/AbstractManager.m
         src/memory/ChatListManager.m
         src/memory/ChatMessageManager.m
-        src/memory/UserManager.m
+        src/memory/ChatUserManager.m
 
-        include/ChatMessage.h
-        src/models/ChatMessage.m
+        # models
+        include/ChatMessageModel.h
+        include/ChatUserModel.h
+        src/models/ChatMessageModel.m
+        src/models/ChatUserModel.m
         )
 
 add_executable(${NAME} ${OBJECTIVE_C_SRCS})
 target_compile_options(${NAME} PUBLIC ${GNUSTEP_FLAGS})
 
-target_link_libraries(${NAME} PUBLIC ncursesw ${GNUSTEP_LIBS} PRIVATE Td::TdJsonStatic)
+target_link_libraries(${NAME} PUBLIC ncursesw ${GNUSTEP_LIBS} Td::TdJson)
+#target_link_libraries(${NAME} PUBLIC ncursesw ${GNUSTEP_LIBS} PRIVATE Td::TdJsonStatic)

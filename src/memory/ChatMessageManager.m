@@ -1,5 +1,5 @@
 #import "../../include/ChatMessageManager.h"
-#import "../../include/ChatMessage.h"
+#import "../../include/ChatMessageModel.h"
 
 @implementation ChatMessageManager
 
@@ -52,7 +52,7 @@
       andMessageId:(NSString *)message_id
       andTimestamp:(NSString *)timestamp
 {
-  ChatMessage *chat_message = [[ChatMessage alloc] init];
+  ChatMessageModel *chat_message = [[ChatMessageModel alloc] init];
 
   chat_message.message_id = message_id;
   chat_message.user_id = user_id;

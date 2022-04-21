@@ -9,11 +9,13 @@
  @public
 }
 - (void)addChatName:(NSString *)name
-             withId:(NSString *)id;
+            withKey:(NSString *)key;
 
 -(int) getChatTotal;
 
 - (NSMutableDictionary *)getChatList;
+
+-(NSString *)getChatNameByKey: (NSString *)key;
 
 - (NSString *)getChatNameByOffset:(int)offset;
 @end

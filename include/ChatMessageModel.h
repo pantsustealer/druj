@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface ChatMessage : NSObject {
+@interface ChatMessageModel : NSObject {
  @public
   NSString *_message_id;
   NSString *_user_id;

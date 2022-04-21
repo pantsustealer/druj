@@ -56,7 +56,7 @@
   [events setValue:data
             forKey:event_name];
 
-  NSAssert([events count] > 0, @"events count: 0");
+//  NSAssert([events count] > 0, @"events count: 0");
 
   return;
 }
